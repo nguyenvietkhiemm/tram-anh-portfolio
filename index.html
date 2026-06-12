@@ -1,283 +1,390 @@
 <!DOCTYPE html>
-<html lang="vi-VN">
+<html lang="en">
 <head>
+  <script>document.documentElement.className += ' js';</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trâm Anh's Portfolio</title>
-  <meta property="og:title" content="Trâm Anh's Portfolio">
-  <meta name="description" content="Video Editor Portfolio — Trâm Anh">
+  <title>Trâm Anh · Video Editor — Portfolio 2025</title>
+  <meta name="description" content="The portfolio of Trâm Anh — a video editor crafting emotion frame by frame. Showreel, experience and selected work.">
+  <meta name="theme-color" content="#f3eddf">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Itim&family=Fredoka:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Itim&family=Oswald:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <span class="brand">Trâm Anh's Portfolio</span>
-    <ul>
-      <li><a href="#hero">Trang chủ</a></li>
-      <li><a href="#about">Về tôi</a></li>
-      <li><a href="#projects">Dự án</a></li>
-      <li><a href="#contact">Liên hệ</a></li>
-    </ul>
-    <button class="nav-toggle" aria-label="Mở menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <a href="#main" class="skip-link">Skip to content</a>
 
-  <!-- SECTION 1 · HERO -->
-  <section id="hero">
-    <div class="hero-bg"></div>
+  <!-- ══ NAV ═══════════════════════════════════════════════════ -->
+  <header id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="brand" aria-label="Home">
+        <span class="brand-mark">TA</span>
+        <span class="brand-dot">.</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul id="navMenu">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Work</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
 
-    <span class="now-playing-tag">Now Showing</span>
-    <img src="images/avatar.webp" alt="Trâm Anh" class="hero-avatar">
-    <p class="hero-hello">HELLO!</p>
-    <h1 class="hero-name">Trâm Anh's</h1>
-    <p class="hero-tagline">video editor &nbsp;·&nbsp; 2025</p>
+  <main id="main">
 
-    <div class="hero-scroll-hint">
-      <span>↓</span>
+  <!-- ══ COVER ═════════════════════════════════════════════════ -->
+  <section id="hero" class="page page--cover">
+    <div class="paper-fx" aria-hidden="true">
+      <div class="holes"><i></i><i></i><i></i><i></i></div>
+      <div class="rule-line"></div>
+    </div>
+
+    <!-- scattered decorations -->
+    <span class="tape tape--a" aria-hidden="true"></span>
+    <span class="tape tape--b" aria-hidden="true"></span>
+    <svg class="doodle doodle--star" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 L24 15 L38 16 L27 24 L31 38 L20 30 L9 38 L13 24 L2 16 L16 15 Z"/></svg>
+
+    <div class="wrap cover-grid">
+      <div class="cover-text">
+        <p class="kicker handwrite">Curriculum Vitae &amp; Portfolio — 2025</p>
+
+        <h1 class="cover-title">
+          <span class="cover-title-line">Trâm</span>
+          <span class="cover-title-line">Anh<span class="apos">’s</span></span>
+        </h1>
+
+        <p class="cover-role">
+          <span class="hl">video editor</span>
+          <svg class="doodle doodle--arrow" viewBox="0 0 60 30" aria-hidden="true"><path d="M2 22 C 18 10, 34 8, 52 14" /><path d="M44 8 L54 14 L44 20"/></svg>
+        </p>
+
+        <p class="cover-blurb typewriter">Crafting emotion, frame by frame — short-form, broadcast &amp; everything in between.</p>
+
+        <ul class="cover-contact typewriter">
+          <li><a href="mailto:tramanhphan2102@gmail.com">tramanhphan2102@gmail.com</a></li>
+          <li><a href="tel:+84962291845">(+84) 96 229 1845</a></li>
+          <li><a href="https://www.instagram.com/tramanh_2102" target="_blank" rel="noopener">@tramanh_2102</a></li>
+        </ul>
+
+        <p class="cover-sig handwrite">Trâm Anh</p>
+      </div>
+
+      <div class="cover-aside">
+        <figure class="polaroid polaroid--cover">
+          <span class="tape tape--clip" aria-hidden="true"></span>
+          <div class="polaroid-img"><img src="images/avatar.webp" alt="Portrait of Trâm Anh"></div>
+          <figcaption class="polaroid-cap handwrite">Trâm Anh · 22</figcaption>
+        </figure>
+
+        <div class="sticky sticky--cover">
+          <p class="handwrite">Not your typical<br>video editor 👀</p>
+        </div>
+
+        <div class="stamp stamp--cover" aria-hidden="true">
+          <span>VIDEO<br>EDITOR</span>
+        </div>
+      </div>
+    </div>
+
+    <a href="#about" class="scroll-hint handwrite">
       scroll
-    </div>
+      <svg viewBox="0 0 24 40" aria-hidden="true"><path d="M12 2 V34" /><path d="M5 27 L12 35 L19 27"/></svg>
+    </a>
   </section>
 
-  <!-- SECTION 2 · ABOUT ME -->
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title">ABOUT ME</h2>
-
-      <div class="about-paragraph">
-        <p>
-          Xin chào, mình là Trâm Anh, một video editor với niềm đam mê truyền tải cảm xúc qua từng khung hình.
-          Với khả năng học hỏi nhanh và sự tỉ mỉ trong công việc, mình mong muốn mang đến những sản phẩm
-          chỉn chu, sáng tạo và phù hợp với từng dự án.
-        </p>
-      </div>
-
-      <!-- ID Card -->
-      <div class="id-card">
-        <div class="id-card-header">
-          <img src="images/avatar.webp" alt="Trâm Anh">
-          <div class="id-card-header-info">
-            <h2>Trâm Anh</h2>
-            <p>Video Editor</p>
-            <p>21 / 02 / 2002</p>
-          </div>
-        </div>
-        <div class="id-stripe"></div>
-        <div class="id-card-body">
-          <div class="info-block">
-            <h3>Contact</h3>
-            <ul>
-              <li>✉️ &nbsp;<a href="mailto:tramanhphan2102@gmail.com">tramanhphan2102@gmail.com</a></li>
-              <li>📞 &nbsp;(+84) 96 229 1845</li>
-              <li>📸 &nbsp;<a href="https://www.instagram.com/tramanh_2102" target="_blank" rel="noopener">@tramanh_2102</a></li>
-            </ul>
-          </div>
-          <div class="info-block">
-            <h3>Education</h3>
-            <p><strong>2020 – 2024</strong></p>
-            <p>Học viện Báo chí và Tuyên truyền</p>
-            <p>Truyền thông quốc tế</p>
-            <p>GPA: 3.35</p>
-          </div>
-        </div>
-      </div>
+  <!-- ══ ABOUT ═════════════════════════════════════════════════ -->
+  <section id="about" class="page page--alt">
+    <div class="paper-fx" aria-hidden="true">
+      <div class="holes"><i></i><i></i><i></i><i></i></div>
+      <div class="rule-line"></div>
     </div>
-  </section>
 
-  <!-- SECTION 3 · EXPERIENCE -->
-  <section id="experience">
-    <div class="container">
-      <h2 class="section-title">EXPERIENCE</h2>
-      <div class="timeline">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <p class="kicker handwrite">01 — about me</p>
+        <h2 class="sec-title">About<span class="dot">.</span></h2>
+        <svg class="u-mark" viewBox="0 0 240 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C 50 3 90 12 130 7 S 210 4 238 8"/></svg>
+      </header>
 
-        <div class="timeline-item">
-          <div class="tl-date">04 – 05 / 2024</div>
-          <div class="tl-content">
-            <h4>Báo Vietnamnet</h4>
-            <p>Thực tập sinh báo chí · Chuyên mục thế giới</p>
-          </div>
-        </div>
+      <div class="about-grid">
+        <article class="card card--note reveal nb-tilt-l">
+          <span class="tape tape--card" aria-hidden="true"></span>
+          <h3 class="card-label handwrite">Hello!</h3>
+          <p class="card-body typewriter">
+            I’m <strong>Trâm Anh</strong>, a <span class="hl">video editor</span>
+            who loves conveying emotion through every frame. A fast learner with a
+            keen eye for detail, I aim to deliver polished, creative work tailored
+            to each project.
+          </p>
+          <ul class="trait-list handwrite">
+            <li>✦ Detail-obsessed</li>
+            <li>✦ Story-first</li>
+            <li>✦ Fast turnaround</li>
+          </ul>
+        </article>
 
-        <div class="timeline-item">
-          <div class="tl-date">05/2024 – 02/2025</div>
-          <div class="tl-content">
-            <h4>MCV Group</h4>
-            <p>Video Editor · Doctor Network</p>
-          </div>
-        </div>
+        <article class="card card--note reveal nb-tilt-r">
+          <span class="tape tape--card tape--card-r" aria-hidden="true"></span>
+          <h3 class="card-label handwrite">Details</h3>
 
+          <ul class="info-list">
+            <li><span class="info-ico" aria-hidden="true">✉</span><a href="mailto:tramanhphan2102@gmail.com" class="typewriter">tramanhphan2102@gmail.com</a></li>
+            <li><span class="info-ico" aria-hidden="true">☎</span><span class="typewriter">(+84) 96 229 1845</span></li>
+            <li><span class="info-ico" aria-hidden="true">◎</span><a href="https://www.instagram.com/tramanh_2102" target="_blank" rel="noopener" class="typewriter">@tramanh_2102</a></li>
+            <li><span class="info-ico" aria-hidden="true">✦</span><span class="typewriter">Born 21 / 02 / 2002</span></li>
+          </ul>
+
+          <hr class="dashed-hr">
+
+          <h3 class="card-label handwrite">Education</h3>
+          <p class="edu-year typewriter">2020 – 2024</p>
+          <p class="edu-school typewriter">Academy of Journalism &amp; Communication</p>
+          <p class="edu-major typewriter">International Communications</p>
+
+          <span class="badge handwrite">3.35<small>GPA</small></span>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 4 · SKILLS -->
-  <section id="skills">
-    <div class="container">
-      <h2 class="section-title">SKILLS</h2>
-      <div class="skills-wrap">
-        <span class="skill-pill">Adobe Premiere Pro</span>
-        <span class="skill-pill">After Effects</span>
-        <span class="skill-pill">Photoshop</span>
-        <span class="skill-pill">CapCut</span>
-        <span class="skill-pill">Canva</span>
-        <span class="skill-pill">Content Writing</span>
-        <span class="skill-pill">Storytelling</span>
-        <span class="skill-pill">Báo chí</span>
+  <!-- ══ EXPERIENCE + SKILLS ═══════════════════════════════════ -->
+  <section id="experience" class="page">
+    <div class="paper-fx" aria-hidden="true">
+      <div class="holes"><i></i><i></i><i></i><i></i></div>
+      <div class="rule-line"></div>
+    </div>
+
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <p class="kicker handwrite">02 — where I’ve been</p>
+        <h2 class="sec-title">Experience<span class="dot">.</span></h2>
+        <svg class="u-mark" viewBox="0 0 240 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C 50 3 90 12 130 7 S 210 4 238 8"/></svg>
+      </header>
+
+      <ol class="exp-grid">
+        <li class="card card--exp reveal nb-tilt-l">
+          <span class="tape tape--card" aria-hidden="true"></span>
+          <span class="exp-date handwrite">Apr – May 2024</span>
+          <h3 class="exp-co">Vietnamnet News</h3>
+          <p class="exp-role typewriter">Journalism Intern</p>
+          <p class="exp-dept typewriter">World News Section</p>
+        </li>
+
+        <li class="card card--exp reveal nb-tilt-r">
+          <span class="tape tape--card tape--card-r" aria-hidden="true"></span>
+          <span class="exp-date handwrite">May 2024 – Feb 2025</span>
+          <h3 class="exp-co">MCV Group</h3>
+          <p class="exp-role typewriter">Video Editor</p>
+          <p class="exp-dept typewriter">Doctor Network</p>
+          <span class="stamp stamp--exp" aria-hidden="true">MAIN<br>JOB</span>
+        </li>
+      </ol>
+
+      <header class="sec-head sec-head--sub reveal">
+        <p class="kicker handwrite">my toolkit</p>
+        <h2 class="sec-title sec-title--sm">Skills<span class="dot">.</span></h2>
+      </header>
+
+      <ul class="skills reveal">
+        <li class="sk sk--red">Adobe Premiere Pro</li>
+        <li class="sk sk--blue">After Effects</li>
+        <li class="sk sk--yellow">Photoshop</li>
+        <li class="sk">CapCut</li>
+        <li class="sk sk--red">Canva</li>
+        <li class="sk sk--blue">Content Writing</li>
+        <li class="sk sk--pink">Storytelling</li>
+        <li class="sk">Journalism</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══ CERTIFICATES ══════════════════════════════════════════ -->
+  <section id="certificates" class="page page--alt">
+    <div class="paper-fx" aria-hidden="true">
+      <div class="holes"><i></i><i></i><i></i><i></i></div>
+      <div class="rule-line"></div>
+    </div>
+
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <p class="kicker handwrite">03 — proof</p>
+        <h2 class="sec-title">Certificates<span class="dot">.</span></h2>
+        <svg class="u-mark" viewBox="0 0 240 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C 50 3 90 12 130 7 S 210 4 238 8"/></svg>
+      </header>
+
+      <div class="certs-row">
+        <figure class="polaroid polaroid--cert reveal nb-tilt-l">
+          <span class="tape tape--clip" aria-hidden="true"></span>
+          <div class="polaroid-img"><img src="images/cert-premiere.jpg" alt="Colorme Premiere Pro certificate"></div>
+          <figcaption class="polaroid-cap handwrite">Colorme — Premiere Pro</figcaption>
+          <a href="https://colorme.vn/digitalcertificate/99251" target="_blank" rel="noopener" class="cert-link handwrite">View certificate ↗</a>
+        </figure>
+
+        <article class="card card--cert reveal nb-tilt-r">
+          <span class="tape tape--card" aria-hidden="true"></span>
+          <span class="cert-ico" aria-hidden="true">🛡️</span>
+          <h3 class="card-label handwrite">Aptis ESOL</h3>
+          <p class="card-body typewriter">English · Level C</p>
+          <p class="card-body card-body--sm typewriter">British Council</p>
+          <a href="https://drive.google.com/file/d/1mWtkD02EnrhCUsIniarRz54sF5w0omEk/view?usp=sharing" target="_blank" rel="noopener" class="cert-link handwrite">View certificate ↗</a>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 5 · CERTIFICATES -->
-  <section id="certificates">
-    <div class="container">
-      <h2 class="section-title">CERTIFICATES</h2>
-      <div class="certs-grid">
+  <!-- ══ WORK ══════════════════════════════════════════════════ -->
+  <section id="projects" class="page">
+    <div class="paper-fx" aria-hidden="true">
+      <div class="holes"><i></i><i></i><i></i><i></i></div>
+      <div class="rule-line"></div>
+    </div>
 
-        <div class="cert-card">
-          <img src="images/cert-premiere.jpg" alt="Chứng chỉ Colorme Premiere">
-          <div class="cert-card-body">
-            <h4>Colorme – Premiere Pro</h4>
-            <p class="cert-sub">Thiết kế &amp; dựng phim</p>
-            <a href="https://colorme.vn/digitalcertificate/99251" target="_blank" rel="noopener">
-              Xem chứng chỉ →
-            </a>
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <p class="kicker handwrite">04 — selected work</p>
+        <h2 class="sec-title">Work<span class="dot">.</span></h2>
+        <svg class="u-mark" viewBox="0 0 240 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C 50 3 90 12 130 7 S 210 4 238 8"/></svg>
+      </header>
+
+      <!-- Project 1 -->
+      <article class="proj reveal">
+        <div class="proj-head">
+          <span class="tape tape--proj" aria-hidden="true"></span>
+          <h3 class="proj-title">“What the Doctor Says”</h3>
+          <p class="proj-sub typewriter">MCV Group — Doctor Network · in partnership with medical experts</p>
+        </div>
+
+        <p class="proj-note handwrite">Short-form · TikTok / Reels / Shorts →</p>
+
+        <div class="marquee" data-marquee>
+          <div class="marquee-track">
+            <button class="film film-v" data-yt="on5LcCRjGj8" aria-label="Play short-form video 1"><img class="film-thumb" src="https://i.ytimg.com/vi/on5LcCRjGj8/hqdefault.jpg" alt="" loading="lazy"><span class="film-play" aria-hidden="true"></span></button>
+            <button class="film film-v" data-yt="EPiyKf0Kk3w" aria-label="Play short-form video 2"><img class="film-thumb" src="https://i.ytimg.com/vi/EPiyKf0Kk3w/hqdefault.jpg" alt="" loading="lazy"><span class="film-play" aria-hidden="true"></span></button>
+            <button class="film film-v" data-yt="lvLhUVhJjeA" aria-label="Play short-form video 3"><img class="film-thumb" src="https://i.ytimg.com/vi/lvLhUVhJjeA/hqdefault.jpg" alt="" loading="lazy"><span class="film-play" aria-hidden="true"></span></button>
+            <button class="film film-v" data-yt="tdgfO7MFJpE" aria-label="Play short-form video 4"><img class="film-thumb" src="https://i.ytimg.com/vi/tdgfO7MFJpE/hqdefault.jpg" alt="" loading="lazy"><span class="film-play" aria-hidden="true"></span></button>
+            <button class="film film-v" data-yt="NNQIdhiJg2w" aria-label="Play short-form video 5"><img class="film-thumb" src="https://i.ytimg.com/vi/NNQIdhiJg2w/hqdefault.jpg" alt="" loading="lazy"><span class="film-play" aria-hidden="true"></span></button>
+            <button class="film film-v" data-yt="AjtnM93slIo" aria-label="Play short-form video 6"><img class="film-thumb" src="https://i.ytimg.com/vi/AjtnM93slIo/hqdefault.jpg" alt="" loading="lazy"><span class="film-play" aria-hidden="true"></span></button>
+            <!-- duplicate for seamless loop (decorative copies hidden from a11y tree) -->
+            <button class="film film-v" data-yt="on5LcCRjGj8" tabindex="-1" aria-hidden="true"><img class="film-thumb" src="https://i.ytimg.com/vi/on5LcCRjGj8/hqdefault.jpg" alt="" loading="lazy"><span class="film-play"></span></button>
+            <button class="film film-v" data-yt="EPiyKf0Kk3w" tabindex="-1" aria-hidden="true"><img class="film-thumb" src="https://i.ytimg.com/vi/EPiyKf0Kk3w/hqdefault.jpg" alt="" loading="lazy"><span class="film-play"></span></button>
+            <button class="film film-v" data-yt="lvLhUVhJjeA" tabindex="-1" aria-hidden="true"><img class="film-thumb" src="https://i.ytimg.com/vi/lvLhUVhJjeA/hqdefault.jpg" alt="" loading="lazy"><span class="film-play"></span></button>
+            <button class="film film-v" data-yt="tdgfO7MFJpE" tabindex="-1" aria-hidden="true"><img class="film-thumb" src="https://i.ytimg.com/vi/tdgfO7MFJpE/hqdefault.jpg" alt="" loading="lazy"><span class="film-play"></span></button>
+            <button class="film film-v" data-yt="NNQIdhiJg2w" tabindex="-1" aria-hidden="true"><img class="film-thumb" src="https://i.ytimg.com/vi/NNQIdhiJg2w/hqdefault.jpg" alt="" loading="lazy"><span class="film-play"></span></button>
+            <button class="film film-v" data-yt="AjtnM93slIo" tabindex="-1" aria-hidden="true"><img class="film-thumb" src="https://i.ytimg.com/vi/AjtnM93slIo/hqdefault.jpg" alt="" loading="lazy"><span class="film-play"></span></button>
           </div>
         </div>
 
-        <div class="cert-card">
-          <div class="cert-card-body" style="padding: 2.5rem 1.4rem;">
-            <h4>Aptis ESOL – Tiếng Anh</h4>
-            <p class="cert-sub">Bậc C &nbsp;·&nbsp; British Council</p>
-            <a href="https://drive.google.com/file/d/1mWtkD02EnrhCUsIniarRz54sF5w0omEk/view?usp=sharing"
-               target="_blank" rel="noopener">
-              Xem chứng chỉ →
-            </a>
-          </div>
+        <p class="proj-note proj-note--center handwrite">✦ Highlights ✦</p>
+        <div class="vid-grid">
+          <button class="film film-h" data-yt="Bb7kRSqk-po" aria-label="Play highlight video 1"><img class="film-thumb" src="https://i.ytimg.com/vi/Bb7kRSqk-po/hqdefault.jpg" alt="" loading="lazy"><span class="film-play" aria-hidden="true"></span></button>
+          <button class="film film-h" data-yt="K-BLge1xzfw" aria-label="Play highlight video 2"><img class="film-thumb" src="https://i.ytimg.com/vi/K-BLge1xzfw/hqdefault.jpg" alt="" loading="lazy"><span class="film-play" aria-hidden="true"></span></button>
+          <button class="film film-h" data-yt="jgtbyfaPO4Y" aria-label="Play highlight video 3"><img class="film-thumb" src="https://i.ytimg.com/vi/jgtbyfaPO4Y/hqdefault.jpg" alt="" loading="lazy"><span class="film-play" aria-hidden="true"></span></button>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="proj reveal">
+        <div class="proj-head">
+          <span class="tape tape--proj" aria-hidden="true"></span>
+          <h3 class="proj-title">Tuyên Quang Magazine</h3>
+          <p class="proj-sub typewriter">Broadcast magazine programme</p>
+        </div>
+        <div class="vid-grid">
+          <button class="film film-h" data-drive="1BYnTZi8hOP_UGdwaHNDn6w6n_LE7Q9OV" aria-label="Play Tuyên Quang Magazine 1"><span class="film-fallback" aria-hidden="true">Google Drive</span><span class="film-play" aria-hidden="true"></span></button>
+          <button class="film film-h" data-drive="1d32edZ_5Ip9QWzgrpSDnvWseyRCnPdks" aria-label="Play Tuyên Quang Magazine 2"><span class="film-fallback" aria-hidden="true">Google Drive</span><span class="film-play" aria-hidden="true"></span></button>
+          <button class="film film-h" data-drive="1KOSV43KQ2ma4Vs-qSLmeUasAStn7QAfP" aria-label="Play Tuyên Quang Magazine 3"><span class="film-fallback" aria-hidden="true">Google Drive</span><span class="film-play" aria-hidden="true"></span></button>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="proj reveal">
+        <div class="proj-head">
+          <span class="tape tape--proj" aria-hidden="true"></span>
+          <h3 class="proj-title">Personal Projects</h3>
+          <p class="proj-sub typewriter">Self-directed edits &amp; experiments</p>
+        </div>
+        <div class="vid-grid">
+          <button class="film film-h" data-yt="6se8DFJ1dvY" aria-label="Play personal project 1"><img class="film-thumb" src="https://i.ytimg.com/vi/6se8DFJ1dvY/hqdefault.jpg" alt="" loading="lazy"><span class="film-play" aria-hidden="true"></span></button>
+          <button class="film film-h" data-yt="1iInnnZxvAw" aria-label="Play personal project 2"><img class="film-thumb" src="https://i.ytimg.com/vi/1iInnnZxvAw/hqdefault.jpg" alt="" loading="lazy"><span class="film-play" aria-hidden="true"></span></button>
+          <button class="film film-h" data-yt="UG5uYfJeD8s" aria-label="Play personal project 3"><img class="film-thumb" src="https://i.ytimg.com/vi/UG5uYfJeD8s/hqdefault.jpg" alt="" loading="lazy"><span class="film-play" aria-hidden="true"></span></button>
         </div>
 
-      </div>
+        <div class="photo-spread">
+          <figure class="polaroid polaroid--spread nb-r1"><div class="polaroid-img"><img src="images/ban-tin.webp" alt="News bulletin still" loading="lazy"></div><figcaption class="polaroid-cap handwrite">News</figcaption></figure>
+          <figure class="polaroid polaroid--spread nb-r2"><div class="polaroid-img"><img src="images/hoang-thanh.webp" alt="Imperial Citadel still" loading="lazy"></div><figcaption class="polaroid-cap handwrite">Imperial Citadel</figcaption></figure>
+          <figure class="polaroid polaroid--spread nb-r3"><div class="polaroid-img"><img src="images/phong-van.webp" alt="Interview still" loading="lazy"></div><figcaption class="polaroid-cap handwrite">Interview</figcaption></figure>
+          <figure class="polaroid polaroid--spread nb-r2"><div class="polaroid-img"><img src="images/thuc-trang.webp" alt="Field report still" loading="lazy"></div><figcaption class="polaroid-cap handwrite">Field Report</figcaption></figure>
+          <figure class="polaroid polaroid--spread nb-r1"><div class="polaroid-img"><img src="images/top5-phim.webp" alt="Top 5 films still" loading="lazy"></div><figcaption class="polaroid-cap handwrite">Top 5 Films</figcaption></figure>
+        </div>
+
+        <div class="vid-grid">
+          <button class="film film-h" data-drive="1LD7UEAUxY5tbQUqrrFZrm2Gg1fojKSyX" aria-label="Play personal project 4"><span class="film-fallback" aria-hidden="true">Google Drive</span><span class="film-play" aria-hidden="true"></span></button>
+          <button class="film film-h" data-drive="1nXjjbRXgf5-uEXpDGZMU_fmdLOK8X3yg" aria-label="Play personal project 5"><span class="film-fallback" aria-hidden="true">Google Drive</span><span class="film-play" aria-hidden="true"></span></button>
+          <button class="film film-h" data-drive="1tvZia9vtOZeomJl7A3Q40thcyqFx1d2Q" aria-label="Play personal project 6"><span class="film-fallback" aria-hidden="true">Google Drive</span><span class="film-play" aria-hidden="true"></span></button>
+        </div>
+      </article>
     </div>
   </section>
 
-  <!-- SECTION 6 · PROJECTS -->
-  <section id="projects">
-    <div class="container">
-      <h2 class="section-title">PROJECTS</h2>
-
-      <!-- DỰ ÁN 1: BÁC SĨ NÓI GÌ? -->
-      <div class="project-block">
-        <div class="project-tag-row">
-          <span class="project-label">Dự án "Bác sĩ nói gì?"</span>
-        </div>
-        <p class="project-subtitle">Hợp tác với các đối tác y tế &nbsp;·&nbsp; MCV Group – Doctor Network</p>
-
-        <div class="video-type-label">Dạng video ngắn</div>
-        <p style="text-align:center; font-family: Itim, cursive; color: var(--blue-mid); margin-bottom: 1rem;">
-          TikTok &nbsp;/&nbsp; Reels &nbsp;/&nbsp; Shorts
-        </p>
-
-        <!-- Auto-scrolling portrait loop (hover to pause, drag to scroll) -->
-        <div class="scroll-loop-wrapper" title="Hover để dừng · Kéo để cuộn">
-          <div class="scroll-loop-track">
-            <!-- Original set -->
-            <div class="video-portrait"><iframe src="https://www.youtube.com/embed/on5LcCRjGj8"  allowfullscreen loading="lazy" title="Bác sĩ nói gì 1"></iframe></div>
-            <div class="video-portrait"><iframe src="https://www.youtube.com/embed/EPiyKf0Kk3w"  allowfullscreen loading="lazy" title="Bác sĩ nói gì 2"></iframe></div>
-            <div class="video-portrait"><iframe src="https://www.youtube.com/embed/lvLhUVhJjeA"  allowfullscreen loading="lazy" title="Bác sĩ nói gì 3"></iframe></div>
-            <div class="video-portrait"><iframe src="https://www.youtube.com/embed/tdgfO7MFJpE"  allowfullscreen loading="lazy" title="Bác sĩ nói gì 4"></iframe></div>
-            <div class="video-portrait"><iframe src="https://www.youtube.com/embed/NNQIdhiJg2w"  allowfullscreen loading="lazy" title="Bác sĩ nói gì 5"></iframe></div>
-            <div class="video-portrait"><iframe src="https://www.youtube.com/embed/AjtnM93slIo"  allowfullscreen loading="lazy" title="Bác sĩ nói gì 6"></iframe></div>
-            <!-- Duplicate for seamless infinite loop -->
-            <div class="video-portrait"><iframe src="https://www.youtube.com/embed/on5LcCRjGj8"  allowfullscreen loading="lazy" title="Bác sĩ nói gì 1"></iframe></div>
-            <div class="video-portrait"><iframe src="https://www.youtube.com/embed/EPiyKf0Kk3w"  allowfullscreen loading="lazy" title="Bác sĩ nói gì 2"></iframe></div>
-            <div class="video-portrait"><iframe src="https://www.youtube.com/embed/lvLhUVhJjeA"  allowfullscreen loading="lazy" title="Bác sĩ nói gì 3"></iframe></div>
-            <div class="video-portrait"><iframe src="https://www.youtube.com/embed/tdgfO7MFJpE"  allowfullscreen loading="lazy" title="Bác sĩ nói gì 4"></iframe></div>
-            <div class="video-portrait"><iframe src="https://www.youtube.com/embed/NNQIdhiJg2w"  allowfullscreen loading="lazy" title="Bác sĩ nói gì 5"></iframe></div>
-            <div class="video-portrait"><iframe src="https://www.youtube.com/embed/AjtnM93slIo"  allowfullscreen loading="lazy" title="Bác sĩ nói gì 6"></iframe></div>
-          </div>
-        </div>
-
-        <p class="highlight-label">✦ Kết quả nổi bật ✦</p>
-        <div class="video-grid">
-          <iframe src="https://www.youtube.com/embed/Bb7kRSqk-po" allowfullscreen loading="lazy" title="Highlight 1"></iframe>
-          <iframe src="https://www.youtube.com/embed/K-BLge1xzfw" allowfullscreen loading="lazy" title="Highlight 2"></iframe>
-          <iframe src="https://www.youtube.com/embed/jgtbyfaPO4Y" allowfullscreen loading="lazy" title="Highlight 3"></iframe>
-        </div>
-      </div>
-
-      <!-- DỰ ÁN 2: TẠP CHÍ TUYÊN QUANG -->
-      <div class="project-block">
-        <div class="project-tag-row">
-          <span class="project-label">Tạp chí Tuyên Quang</span>
-        </div>
-        <div class="video-grid">
-          <iframe src="https://drive.google.com/file/d/1BYnTZi8hOP_UGdwaHNDn6w6n_LE7Q9OV/preview" allow="autoplay" loading="lazy" title="Tuyên Quang 1"></iframe>
-          <iframe src="https://drive.google.com/file/d/1d32edZ_5Ip9QWzgrpSDnvWseyRCnPdks/preview" allow="autoplay" loading="lazy" title="Tuyên Quang 2"></iframe>
-          <iframe src="https://drive.google.com/file/d/1KOSV43KQ2ma4Vs-qSLmeUasAStn7QAfP/preview" allow="autoplay" loading="lazy" title="Tuyên Quang 3"></iframe>
-        </div>
-      </div>
-
-      <!-- DỰ ÁN 3: CÁ NHÂN -->
-      <div class="project-block">
-        <div class="project-tag-row">
-          <span class="project-label">Dự án cá nhân</span>
-        </div>
-
-        <div class="video-grid">
-          <iframe src="https://www.youtube.com/embed/6se8DFJ1dvY" allowfullscreen loading="lazy" title="Cá nhân 1"></iframe>
-          <iframe src="https://www.youtube.com/embed/1iInnnZxvAw" allowfullscreen loading="lazy" title="Cá nhân 2"></iframe>
-          <iframe src="https://www.youtube.com/embed/UG5uYfJeD8s" allowfullscreen loading="lazy" title="Cá nhân 3"></iframe>
-        </div>
-
-        <div class="img-gallery" style="margin-top: 2rem;">
-          <img src="images/ban-tin.webp"     alt="Bản tin">
-          <img src="images/hoang-thanh.webp" alt="Hoàng Thành">
-          <img src="images/phong-van.webp"   alt="Phỏng vấn">
-          <img src="images/thuc-trang.webp"  alt="Thực trạng">
-          <img src="images/top5-phim.webp"   alt="Top 5 phim">
-        </div>
-
-        <div class="video-grid" style="margin-top: 2rem;">
-          <iframe src="https://drive.google.com/file/d/1LD7UEAUxY5tbQUqrrFZrm2Gg1fojKSyX/preview" allow="autoplay" loading="lazy" title="Drive 4"></iframe>
-          <iframe src="https://drive.google.com/file/d/1nXjjbRXgf5-uEXpDGZMU_fmdLOK8X3yg/preview" allow="autoplay" loading="lazy" title="Drive 5"></iframe>
-          <iframe src="https://drive.google.com/file/d/1tvZia9vtOZeomJl7A3Q40thcyqFx1d2Q/preview" allow="autoplay" loading="lazy" title="Drive 6"></iframe>
-        </div>
-      </div>
-
+  <!-- ══ CONTACT ═══════════════════════════════════════════════ -->
+  <section id="contact" class="page page--alt">
+    <div class="paper-fx" aria-hidden="true">
+      <div class="holes"><i></i><i></i><i></i><i></i></div>
+      <div class="rule-line"></div>
     </div>
-  </section>
 
-  <!-- SECTION 7 · CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title">CONTACT</h2>
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <p class="kicker handwrite">05 — say hello</p>
+        <h2 class="sec-title">Let’s talk<span class="dot">.</span></h2>
+        <svg class="u-mark" viewBox="0 0 240 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C 50 3 90 12 130 7 S 210 4 238 8"/></svg>
+      </header>
+
       <div class="contact-grid">
-        <div class="contact-row">
-          <span class="contact-icon">✉</span>
-          <a href="mailto:tramanhphan2102@gmail.com">tramanhphan2102@gmail.com</a>
-        </div>
-        <div class="contact-row">
-          <span class="contact-icon">📞</span>
-          <span>(+84) 96 229 1845</span>
-        </div>
-        <div class="contact-row">
-          <span class="contact-icon">📅</span>
-          <span>21 / 02 / 2002</span>
-        </div>
-        <div class="contact-row">
-          <span class="contact-icon">📸</span>
-          <a href="https://www.instagram.com/tramanh_2102" target="_blank" rel="noopener">@tramanh_2102</a>
+        <ul class="contact-list reveal">
+          <li class="c-item">
+            <span class="c-label handwrite">Email</span>
+            <a href="mailto:tramanhphan2102@gmail.com" class="c-val typewriter">tramanhphan2102@gmail.com</a>
+          </li>
+          <li class="c-item">
+            <span class="c-label handwrite">Phone</span>
+            <a href="tel:+84962291845" class="c-val typewriter">(+84) 96 229 1845</a>
+          </li>
+          <li class="c-item">
+            <span class="c-label handwrite">Instagram</span>
+            <a href="https://www.instagram.com/tramanh_2102" target="_blank" rel="noopener" class="c-val typewriter">@tramanh_2102</a>
+          </li>
+          <li class="c-item">
+            <span class="c-label handwrite">Based in</span>
+            <span class="c-val typewriter">Hanoi, Vietnam</span>
+          </li>
+        </ul>
+
+        <div class="contact-note reveal">
+          <span class="stamp stamp--blue" aria-hidden="true">OPEN<br>TO<br>WORK</span>
+          <p class="contact-quote handwrite">“ Thanks for taking the time to look through my portfolio! ”</p>
+          <p class="contact-sig handwrite">Trâm Anh</p>
+          <span class="tape tape--sig" aria-hidden="true"></span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    © 2025 &nbsp;Trâm Anh's Portfolio &nbsp;·&nbsp; Video Editor
+  </main>
+
+  <!-- ══ FOOTER ════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <span class="typewriter">© 2025 · Trâm Anh — Video Editor</span>
+    <a href="#hero" class="footer-top handwrite">back to top ↑</a>
   </footer>
 
   <script src="script.js"></script>

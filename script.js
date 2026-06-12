@@ -1,79 +1,95 @@
-/* ===== Active nav link on scroll ======================== */
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('nav ul a');
+/* ═══════════════════════════════════════════════════════════════
+   Trâm Anh · Portfolio — interactions
+   ═══════════════════════════════════════════════════════════════ */
+'use strict';
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        navLinks.forEach((link) => {
-          link.classList.toggle(
-            'is-active',
-            link.getAttribute('href') === '#' + entry.target.id
-          );
-        });
-      }
+const $  = (s, c = document) => c.querySelector(s);
+const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ─── Scroll progress + navbar state ────────────────────────── */
+const bar    = $('#scrollProgress');
+const navbar = $('#navbar');
+
+const onScroll = () => {
+  const max = document.documentElement.scrollHeight - innerHeight;
+  bar.style.width = (max > 0 ? (scrollY / max) * 100 : 0) + '%';
+  navbar.classList.toggle('scrolled', scrollY > 24);
+};
+addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+/* ─── Active nav link (scroll spy) ──────────────────────────── */
+const navLinks = $$('#navMenu a');
+const linkFor  = id => navLinks.find(a => a.getAttribute('href') === '#' + id);
+
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    navLinks.forEach(a => a.classList.remove('is-active'));
+    linkFor(e.target.id)?.classList.add('is-active');
+  });
+}, { rootMargin: '-45% 0px -50% 0px' });
+$$('section[id]').forEach(s => spy.observe(s));
+
+/* ─── Reveal on scroll (staggered among siblings) ───────────── */
+const revealEls = $$('.reveal');
+
+if (reduceMotion) {
+  revealEls.forEach(el => el.classList.add('visible'));
+} else {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const sibs = [...el.parentElement.children].filter(c => c.classList.contains('reveal'));
+      el.style.transitionDelay = (Math.max(0, sibs.indexOf(el)) * 80) + 'ms';
+      el.classList.add('visible');
+      io.unobserve(el);
     });
-  },
-  { rootMargin: '-40% 0px -55% 0px' }
-);
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+}
 
-sections.forEach((section) => observer.observe(section));
+/* ─── Mobile menu ───────────────────────────────────────────── */
+const toggle  = $('#navToggle');
+const navMenu = $('#navMenu');
 
-/* ===== Mobile nav toggle ================================ */
-const navToggle = document.querySelector('.nav-toggle');
-const navMenu   = document.querySelector('nav ul');
+const setMenu = open => {
+  navMenu.classList.toggle('is-open', open);
+  toggle.classList.toggle('is-open', open);
+  toggle.setAttribute('aria-expanded', String(open));
+  toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+};
+toggle.addEventListener('click', () => setMenu(!navMenu.classList.contains('is-open')));
+navMenu.addEventListener('click', e => { if (e.target.tagName === 'A') setMenu(false); });
+addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+addEventListener('resize', () => { if (innerWidth > 620) setMenu(false); }, { passive: true });
 
-navToggle.addEventListener('click', () => {
-  navMenu.classList.toggle('is-open');
-  const isOpen = navMenu.classList.contains('is-open');
-  navToggle.setAttribute('aria-expanded', isOpen);
+/* ─── Video facades (click-to-load) ─────────────────────────── */
+function loadVideo(btn) {
+  const { yt, drive } = btn.dataset;
+  const iframe = document.createElement('iframe');
+  iframe.title = btn.getAttribute('aria-label') || 'Video';
+  iframe.loading = 'lazy';
+  if (yt) {
+    iframe.src = `https://www.youtube.com/embed/${yt}?autoplay=1&rel=0&playsinline=1`;
+    iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    iframe.allowFullscreen = true;
+  } else if (drive) {
+    iframe.src = `https://drive.google.com/file/d/${drive}/preview`;
+    iframe.allow = 'autoplay';
+    iframe.allowFullscreen = true;
+  } else {
+    return;
+  }
+  const frame = document.createElement('div');
+  frame.className = btn.className.replace('film', 'film film-loaded');
+  frame.appendChild(iframe);
+  btn.replaceWith(frame);
+  iframe.focus?.();
+}
+
+$$('.film[data-yt], .film[data-drive]').forEach(btn => {
+  btn.addEventListener('click', () => loadVideo(btn));
 });
-
-navMenu.querySelectorAll('a').forEach((link) => {
-  link.addEventListener('click', () => navMenu.classList.remove('is-open'));
-});
-
-/* ===== Drag-to-scroll on horizontal video track ========= */
-const wrapper = document.querySelector('.scroll-loop-wrapper');
-const track   = document.querySelector('.scroll-loop-track');
-let isDragging = false;
-let startX, scrollLeft;
-
-wrapper.addEventListener('mousedown', (e) => {
-  isDragging = true;
-  startX     = e.pageX - wrapper.offsetLeft;
-  scrollLeft = wrapper.scrollLeft;
-  track.style.animationPlayState = 'paused';
-});
-
-window.addEventListener('mouseup', () => {
-  if (!isDragging) return;
-  isDragging = false;
-  track.style.animationPlayState = 'running';
-});
-
-wrapper.addEventListener('mousemove', (e) => {
-  if (!isDragging) return;
-  e.preventDefault();
-  const x    = e.pageX - wrapper.offsetLeft;
-  const walk = (x - startX) * 1.5;
-  wrapper.scrollLeft = scrollLeft - walk;
-});
-
-/* Touch support */
-wrapper.addEventListener('touchstart', (e) => {
-  startX     = e.touches[0].pageX - wrapper.offsetLeft;
-  scrollLeft = wrapper.scrollLeft;
-  track.style.animationPlayState = 'paused';
-}, { passive: true });
-
-wrapper.addEventListener('touchend', () => {
-  track.style.animationPlayState = 'running';
-}, { passive: true });
-
-wrapper.addEventListener('touchmove', (e) => {
-  const x    = e.touches[0].pageX - wrapper.offsetLeft;
-  const walk = (x - startX) * 1.5;
-  wrapper.scrollLeft = scrollLeft - walk;
-}, { passive: true });
