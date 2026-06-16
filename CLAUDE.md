@@ -16,14 +16,13 @@ Notebook / scrapbook theme on graph-paper: red margin rule, hole punches, polaro
 
 ## Page structure (`index.html`)
 
-Fixed `#navbar` → `<main>` with sections, then `<footer>`:
+Fixed `#navbar` → `<main>` with sections, then `<footer>`. Section order (kicker numbers + alternating `.page--alt` background follow this order):
 
 - `#hero .page--cover` — ransom-note "Portfolio" title, "Hello!" intro card, polaroid portrait.
-- `#about` — two torn-paper cards (`.card--torn`): About me bio + Education.
+- `#projects` (nav label "Work") — project articles (see below). **Comes first after the hero** — the showreel is the headline content.
 - `#experience` — experience cards, then **Skills** (`.skills-wrap`: two columns "Editing tools" / "AI tools" split by a dashed vertical divider; each tool is a `.sk-sticker`).
-- `#certificates` — polaroid + cert cards.
-- `#projects` (nav label "Work") — project articles (see below).
-- `#contact` — contact list + sign-off.
+- `#about` — two torn-paper cards (`.card--torn`): About me bio + Education.
+- `#certificates` — polaroid + cert cards. (Last section; the `#contact` "Let's talk" section was removed at the user's request — contact details no longer appear on the page.)
 
 ### Work projects
 
