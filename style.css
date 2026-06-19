@@ -308,6 +308,7 @@ section[id] { scroll-margin-top: 4.5rem; }
 }
 
 .polaroid--cover { width: clamp(260px, 33vw, 390px); transform: rotate(-3.5deg); }
+
 .polaroid--cover .polaroid-img { aspect-ratio: 4 / 5; }
 .polaroid--cert  { width: clamp(230px, 28vw, 270px); }
 .polaroid--cert  .polaroid-img { aspect-ratio: 4 / 3; }
@@ -370,6 +371,19 @@ section[id] { scroll-margin-top: 4.5rem; }
 .card > * { position: relative; z-index: 1; }
 .card:hover { transform: translateY(-4px) rotate(0deg); box-shadow: var(--sh-3); }
 
+/* Hero "Hello" card on a real kraft-paper scrap */
+.card--note {
+  background: url("images/notes/note-1.png") center/100% 100% no-repeat;
+  box-shadow: none; border-radius: 0;
+  filter: drop-shadow(3px 6px 8px rgba(45, 33, 12, .3));
+  padding: clamp(2.4rem, 5vw, 3.2rem) clamp(2rem, 4vw, 2.6rem) clamp(2.2rem, 4.4vw, 2.9rem) clamp(3.4rem, 8vw, 4.6rem);
+}
+.card--note::before { display: none; }
+.card--note:hover { box-shadow: none; }
+.card--note .card-body { color: #3c2d17; }
+.card--note .card-body strong { color: var(--red-deep); }
+.card--note .trait-list li { color: #6a5230; }
+
 .card-label { font-size: 1.85rem; font-weight: 700; color: var(--blue); line-height: 1; margin-bottom: .7rem; }
 .card-body  { font-family: 'Roboto Mono', monospace; font-size: .95rem; line-height: 1.9; color: var(--ink); }
 .card-body strong { color: var(--red-deep); }
@@ -409,8 +423,8 @@ section[id] { scroll-margin-top: 4.5rem; }
 .cover-wrap { width: 100%; }
 
 /* ── title lockup ── */
-.cover-head { position: relative; margin-bottom: clamp(.8rem, 2vw, 1.5rem); text-align: center; }
-.title-lockup { display: inline-block; text-align: left; }
+.cover-head { position: relative; margin-bottom: clamp(.8rem, 2vw, 1.5rem); display: flex; flex-direction: column; align-items: center; text-align: center; }
+.title-lockup { display: block; width: max-content; max-width: 100%; text-align: left; }
 
 .collage-pre {
   position: relative; display: inline-block;
@@ -452,6 +466,18 @@ section[id] { scroll-margin-top: 4.5rem; }
   mix-blend-mode: multiply; opacity: .32;
 }
 .cutout:hover .ct { transform: rotate(0) translateY(0); }
+
+/* image-based cut-out title (single ready-made "Portfolio" collage) */
+.cutout--photo { position: relative; justify-content: center; gap: 0; }
+.cutout--photo .year { position: absolute; right: .2em; bottom: 100%; margin: 0 0 .15em; }
+.portfolio-img {
+  width: clamp(350px, 100vw, 1000px);
+height: auto;
+display: block;
+  filter: drop-shadow(2px 4px 5px rgba(45, 33, 12, .22));
+  transition: transform .35s var(--ease);
+}
+.cutout--photo:hover .portfolio-img { transform: rotate(-1deg) scale(1.01); }
 
 .ct--p  { font-family: 'Abril Fatface', serif;     background-color: #ece3cf; color: #5a61c4; transform: rotate(-5deg) translateY(2%);  clip-path: polygon(4% 7%,26% 0,52% 6%,78% 0,100% 8%,96% 34%,100% 66%,96% 94%,72% 100%,46% 95%,20% 100%,3% 92%,0 60%,4% 32%); }
 .ct--o1 { font-family: 'Anton', sans-serif;         background-color: #2f7e86; background-image: repeating-radial-gradient(circle at 50% 45%, rgba(0,0,0,.18) 0 1.5px, transparent 1.5px 6px), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.5'/%3E%3C/svg%3E"); background-blend-mode: multiply, multiply; background-size: auto, 110px 110px; transform: rotate(4deg)  translateY(9%);  border-radius: 46% 54% 52% 48% / 50% 48% 52% 50%; }
@@ -668,17 +694,34 @@ section[id] { scroll-margin-top: 4.5rem; }
 .sk-icon:hover .sk-sticker { transform: rotate(0) scale(1.12) !important; filter: url(#sk-rough) drop-shadow(2px 4px 6px rgba(45,33,12,.28)); }
 .sk-name { font-size: 1rem; font-weight: 600; color: var(--ink-soft); }
 
-/* ink colors per tool */
-.sk-pr  { color: #5C2D9A; }
-.sk-ae  { color: #3A2A6E; }
-.sk-ps  { color: #1B5FA6; }
-.sk-ai  { color: #C76B00; }
-.sk-cc  { color: #1A1A1A; }
-.sk-gpt { color: #10A37F; }
-.sk-gem { color: #4285F4; }
-.sk-hai { color: #7C3AED; }
-.sk-veo { color: #EA4335; }
-.sk-sno { color: #2A2A2A; font-size: 1.8rem; }
+/* real logo tiles (image / svg) — no paper badge, just the icon */
+.sk-sticker.sk-img {
+  background: none; border: none; padding: 0; overflow: visible;
+  filter: drop-shadow(1px 2px 3px rgba(45, 33, 12, .22));
+}
+.sk-sticker.sk-img .sk-logo { width: 100%; height: 100%; object-fit: contain; display: block; }
+.sk-icon:hover .sk-sticker.sk-img { filter: drop-shadow(2px 4px 7px rgba(45, 33, 12, .3)); }
+
+/* AI tools written across a real torn-paper scrap (image) */
+.ai-paper {
+  position: relative; margin-top: 1.1rem; max-width: min(100%, 460px);
+  padding: 2.1rem 2.6rem 2.3rem; transform: rotate(-1.4deg);
+  background: url("images/notes/note-ai.png") center/100% 100% no-repeat;
+  filter: drop-shadow(2px 5px 6px rgba(45, 33, 12, .32));
+}
+.ai-list {
+  position: relative; z-index: 1;
+  list-style: none; display: flex; flex-wrap: wrap; align-items: baseline;
+  gap: .3rem 1.4rem; justify-content: center;
+}
+.ai-list li {
+  position: relative; padding-left: 1.5rem;
+  font-size: clamp(1.45rem, 2.3vw, 1.78rem); line-height: 1.5; color: #43321a;
+}
+.ai-list li::before {
+  content: "✓"; position: absolute; left: 0; top: .12em;
+  color: var(--red); font-weight: 700; font-family: 'Oswald', sans-serif; font-size: .82em;
+}
 
 /* ─── CERTIFICATES ──────────────────────────────────────────── */
 .certs-row { display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
@@ -699,6 +742,13 @@ section[id] { scroll-margin-top: 4.5rem; }
 .proj-bg { position: absolute; z-index: -1; pointer-events: none; opacity: .14; }
 .proj-bg svg { width: 100%; height: 100%; display: block; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
 .proj-bg.is-fill svg { fill: currentColor; stroke: none; }
+.proj-bg img { width: 100%; height: auto; display: block; }
+.proj-bg--tile { inset: 0; width: auto; height: auto; }
+.proj-bg--mcv {
+  opacity: .12;
+  background: url("images/patterns/mcv-doodles.png") repeat;
+  background-size: 300px auto;
+}
 @media (max-width: 760px) { .proj-bg { display: none; } }
 .proj-mascot {
   position: absolute; right: clamp(.5rem, 3vw, 3rem); top: -.5rem;
