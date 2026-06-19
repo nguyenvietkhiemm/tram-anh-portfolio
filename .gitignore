@@ -2,6 +2,9 @@
 canva_fetched/
 *.pdf
 
+# self-hosted LAN chat tool (unrelated to the portfolio)
+lan-chat/
+
 # OS cruft
 Thumbs.db
 .DS_Store
