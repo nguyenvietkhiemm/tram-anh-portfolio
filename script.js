@@ -66,14 +66,14 @@ navMenu.addEventListener('click', e => { if (e.target.tagName === 'A') setMenu(f
 addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
 addEventListener('resize', () => { if (innerWidth > 620) setMenu(false); }, { passive: true });
 
-/* ─── Video facades (click-to-load) ─────────────────────────── */
+/* ─── Video embeds (muted autoplay + loop, lazy on scroll) ──── */
 function loadVideo(btn) {
   const { yt, drive } = btn.dataset;
   const iframe = document.createElement('iframe');
   iframe.title = btn.getAttribute('aria-label') || 'Video';
   iframe.loading = 'lazy';
   if (yt) {
-    iframe.src = `https://www.youtube.com/embed/${yt}?autoplay=1&rel=0&playsinline=1`;
+    iframe.src = `https://www.youtube.com/embed/${yt}?autoplay=1&mute=1&loop=1&playlist=${yt}&controls=1&modestbranding=1&rel=0&playsinline=1`;
     iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
     iframe.allowFullscreen = true;
   } else if (drive) {
@@ -87,9 +87,15 @@ function loadVideo(btn) {
   frame.className = btn.className.replace('film', 'film film-loaded');
   frame.appendChild(iframe);
   btn.replaceWith(frame);
-  iframe.focus?.();
 }
 
-$$('.film[data-yt], .film[data-drive]').forEach(btn => {
-  btn.addEventListener('click', () => loadVideo(btn));
-});
+const films = $$('.film[data-yt], .film[data-drive]');
+if (reduceMotion) {
+  // reduced motion: keep them as click-to-play facades, no autoplay
+  films.forEach(btn => btn.addEventListener('click', () => loadVideo(btn)));
+} else {
+  const vio = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { loadVideo(e.target); vio.unobserve(e.target); } });
+  }, { rootMargin: '300px 0px' });
+  films.forEach(btn => vio.observe(btn));
+}
