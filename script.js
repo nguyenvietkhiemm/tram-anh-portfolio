@@ -84,7 +84,7 @@ function loadVideo(btn) {
     return;
   }
   const frame = document.createElement('div');
-  frame.className = btn.className.replace('film', 'film film-loaded');
+  frame.className = [...btn.classList, 'film-loaded'].join(' ');
   frame.appendChild(iframe);
   btn.replaceWith(frame);
 }
